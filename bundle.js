@@ -1,8 +1,4 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-const VectorTile = require('@mapbox/vector-tile').VectorTile
-const Protobuf = require('pbf')
-
-},{"@mapbox/vector-tile":3,"pbf":8}],2:[function(require,module,exports){
+require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
 module.exports = Point;
@@ -316,12 +312,7 @@ Point.convert = function (a) {
     return a;
 };
 
-},{}],3:[function(require,module,exports){
-module.exports.VectorTile = require('./lib/vectortile.js');
-module.exports.VectorTileFeature = require('./lib/vectortilefeature.js');
-module.exports.VectorTileLayer = require('./lib/vectortilelayer.js');
-
-},{"./lib/vectortile.js":4,"./lib/vectortilefeature.js":5,"./lib/vectortilelayer.js":6}],4:[function(require,module,exports){
+},{}],2:[function(require,module,exports){
 'use strict';
 
 var VectorTileLayer = require('./vectortilelayer');
@@ -340,7 +331,7 @@ function readTile(tag, layers, pbf) {
 }
 
 
-},{"./vectortilelayer":6}],5:[function(require,module,exports){
+},{"./vectortilelayer":4}],3:[function(require,module,exports){
 'use strict';
 
 var Point = require('@mapbox/point-geometry');
@@ -575,7 +566,7 @@ function signedArea(ring) {
     return sum;
 }
 
-},{"@mapbox/point-geometry":2}],6:[function(require,module,exports){
+},{"@mapbox/point-geometry":1}],4:[function(require,module,exports){
 'use strict';
 
 var VectorTileFeature = require('./vectortilefeature.js');
@@ -638,7 +629,7 @@ VectorTileLayer.prototype.feature = function(i) {
     return new VectorTileFeature(this._pbf, end, this.extent, this._keys, this._values);
 };
 
-},{"./vectortilefeature.js":5}],7:[function(require,module,exports){
+},{"./vectortilefeature.js":3}],5:[function(require,module,exports){
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = (nBytes * 8) - mLen - 1
@@ -724,7 +715,12 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],8:[function(require,module,exports){
+},{}],"@mapbox/vector-tile":[function(require,module,exports){
+module.exports.VectorTile = require('./lib/vectortile.js');
+module.exports.VectorTileFeature = require('./lib/vectortilefeature.js');
+module.exports.VectorTileLayer = require('./lib/vectortilelayer.js');
+
+},{"./lib/vectortile.js":2,"./lib/vectortilefeature.js":3,"./lib/vectortilelayer.js":4}],"pbf":[function(require,module,exports){
 'use strict';
 
 module.exports = Pbf;
@@ -1344,4 +1340,4 @@ function writeUtf8(buf, str, pos) {
     return pos;
 }
 
-},{"ieee754":7}]},{},[1]);
+},{"ieee754":5}]},{},[]);
